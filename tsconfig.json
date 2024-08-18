@@ -5,6 +5,11 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "dynamic-form-generator": [
+        "dist/dynamic-form-generator"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
