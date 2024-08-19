@@ -18,9 +18,10 @@
             [form]="form"
             class="form-check-input"
           ></lib-input-boolen>
-          <label for="{{ control.name }}" class="control-label">{{
-            control.label
-          }}</label>
+          <label
+            for="{{ control.name }}"
+            class="control-label"
+          >{{ control.label }}</label>
         </div>
 
         <!-- Number Counter Field -->
@@ -45,6 +46,28 @@
         <div *ngSwitchCase="'list'" class="list-container">
           <div class="list-header">
             <h3>{{ control.label }}</h3>
+            <div class="button-container">
+              <button
+                type="button"
+                class="add-button"
+                (click)="addList(control.controls, control.name, form)"
+              >
+                <i class="bi bi-plus-circle me-1"></i>Add List Item
+              </button>
+              <button
+                type="button"
+                class="toggle-button"
+                (click)="toggleContent()"
+              >
+                <i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-chevron-up': isContentVisible,
+                    'bi-chevron-down': !isContentVisible
+                  }"
+                ></i>
+              </button>
+            </div>
           </div>
           <div [@slideToggle]="isContentVisible ? 'collapsed' : 'expanded'">
             <div [formArrayName]="control.name">
@@ -69,28 +92,6 @@
                   </button>
                 </div>
               </div>
-            </div>
-            <div class="button-container">
-              <button
-                type="button"
-                class="add-button"
-                (click)="addList(control.controls, control.name, form)"
-              >
-                <i class="bi bi-plus-circle me-1"></i>Add List Item
-              </button>
-              <button
-                type="button"
-                class="toggle-button"
-                (click)="toggleContent()"
-              >
-                <i
-                  class="bi"
-                  [ngClass]="{
-                    'bi-chevron-up': isContentVisible,
-                    'bi-chevron-down': !isContentVisible
-                  }"
-                ></i>
-              </button>
             </div>
           </div>
         </div>
