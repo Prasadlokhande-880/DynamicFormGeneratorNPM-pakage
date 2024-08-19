@@ -245,14 +245,16 @@ export class DynamicFormControlComponent {
                     value: 'InventoryPlugin',
                     validators: [
                       {
-                        validation: 'required',
-                        message: 'Plugin Name is required',
-                      },
-                      {
-                        validation: 'minLength',
-                        value: 3,
+                        validation: 'minlength',
+                        requiredLength: 3,
                         message:
                           'Plugin Name must be at least 3 characters long',
+                      },
+                      {
+                        validation: 'maxlength',
+                        requiredLength: 20,
+                        message:
+                          'Plugin Name cannot be more than 20 characters long',
                       },
                     ],
                   },

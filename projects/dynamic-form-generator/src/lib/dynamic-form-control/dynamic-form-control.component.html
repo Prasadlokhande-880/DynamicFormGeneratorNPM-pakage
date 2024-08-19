@@ -1,1 +1,15 @@
-<p>dynamiDQDQ   <Data>QDQ   D</Data>c-form-control works!</p>
+<div class="container">
+  <div class="form-container">
+    <h1 class="header">Service Configuration</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <lib-dynamic-ui
+        [formControlsData]="formJson"
+        [form]="userForm"
+      ></lib-dynamic-ui>
+      <div class="button-container d-flex justify-content-end">
+        <button type="button" class="button button-save" (click)="functionSave()">Save</button>
+        <button type="button" class="button button-cancel">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
