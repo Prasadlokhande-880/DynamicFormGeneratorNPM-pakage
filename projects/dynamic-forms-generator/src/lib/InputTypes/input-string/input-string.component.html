@@ -1,12 +1,12 @@
 <div [formGroup]="form" class="form-group">
-  <label for="{{ control.name }}" class="form-label">
+  <label for="{{ control.name }}" class="label">
     {{ control.label }}
   </label>
 
   <input
     id="{{ control.name }}"
     type="text"
-    class="form-control custom-input-height custom-input-style"
+    class="form-control"
     [formControlName]="control.name"
     placeholder="{{ control.placeholder || '' }}"
     (blur)="form.get(control.name)?.markAsTouched()"
