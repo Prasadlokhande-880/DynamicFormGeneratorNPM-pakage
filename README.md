@@ -2,7 +2,6 @@
 
 The **Dynamic Form Generator** is a versatile tool for creating dynamic, customizable forms in Angular. It leverages a JSON configuration to define form fields, validations, and messages, enabling seamless integration and flexibility in form design without hardcoding.
 
-## How to Use the NPM Package
 ## Steps to Use the Dynamic Form Generator
 
 ### 1. Install the Package
