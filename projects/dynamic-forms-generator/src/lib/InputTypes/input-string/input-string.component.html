@@ -1,0 +1,22 @@
+<div [formGroup]="form" class="form-group">
+  <label for="{{ control.name }}" class="form-label">
+    {{ control.label }}
+  </label>
+
+  <input
+    id="{{ control.name }}"
+    type="text"
+    class="form-control custom-input-height custom-input-style"
+    [formControlName]="control.name"
+    placeholder="{{ control.placeholder || '' }}"
+    (blur)="form.get(control.name)?.markAsTouched()"
+  />
+
+  <!-- Validation message -->
+  <div
+    *ngIf="form.get(control.name)?.invalid && form.get(control.name)?.touched"
+    class="validation-message"
+  >
+    <p>{{ getErrorMessage() }}</p>
+  </div>
+</div>

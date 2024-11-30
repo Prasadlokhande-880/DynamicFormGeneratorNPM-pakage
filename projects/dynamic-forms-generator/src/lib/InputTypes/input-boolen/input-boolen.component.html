@@ -1,0 +1,21 @@
+<div [formGroup]="form" class="form-group">
+  <div class="checkbox-container">
+    <input
+      id="{{ control.name }}"
+      type="checkbox"
+      [formControlName]="control.name"
+      class="checkbox-input"
+    />
+    <label for="{{ control.name }}" class="checkbox-label"
+      >{{ control.label }}</label
+    >
+  </div>
+
+  <!-- Validation message -->
+  <div
+    *ngIf="form.get(control.name)?.invalid && form.get(control.name)?.touched"
+    class="validation-message"
+  >
+    <p>{{ getErrorMessage() }}</p>
+  </div>
+</div>

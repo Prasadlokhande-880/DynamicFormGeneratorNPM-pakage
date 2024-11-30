@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'DynamicFormGenerator'`, () => {
+  it(`should have as title 'dynamic-ui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('DynamicFormGenerator');
+    expect(app.title).toEqual('dynamic-ui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('DynamicFormGenerator app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('dynamic-ui app is running!');
   });
 });

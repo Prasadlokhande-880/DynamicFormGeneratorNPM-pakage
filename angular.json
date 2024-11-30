@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DynamicFormGenerator": {
+    "dynamic-ui": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dynamic-form-generator",
+            "outputPath": "dist/dynamic-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DynamicFormGenerator:build:production"
+              "browserTarget": "dynamic-ui:build:production"
             },
             "development": {
-              "browserTarget": "DynamicFormGenerator:build:development"
+              "browserTarget": "dynamic-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DynamicFormGenerator:build"
+            "browserTarget": "dynamic-ui:build"
           }
         },
         "test": {
@@ -94,23 +94,23 @@
         }
       }
     },
-    "dynamic-form-generator": {
+    "dynamic-forms-generator": {
       "projectType": "library",
-      "root": "projects/dynamic-form-generator",
-      "sourceRoot": "projects/dynamic-form-generator/src",
+      "root": "projects/dynamic-forms-generator",
+      "sourceRoot": "projects/dynamic-forms-generator/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/dynamic-form-generator/ng-package.json"
+            "project": "projects/dynamic-forms-generator/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/dynamic-form-generator/tsconfig.lib.prod.json"
+              "tsConfig": "projects/dynamic-forms-generator/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/dynamic-form-generator/tsconfig.lib.json"
+              "tsConfig": "projects/dynamic-forms-generator/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -118,7 +118,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/dynamic-form-generator/tsconfig.spec.json",
+            "tsConfig": "projects/dynamic-forms-generator/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

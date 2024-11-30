@@ -1,0 +1,12 @@
+<div class="service-configuration">
+    <div class="service-header">
+      <h1>Service Configuration</h1>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="service-form">
+      <dynamic-ui [formControlsData]="formJson" [form]="userForm"></dynamic-ui>
+      <div class="form-buttons">
+        <button type="button" (click)="onSubmit()">Save</button>
+        <button type="button">Cancel</button>
+      </div>
+    </form>
+  </div>

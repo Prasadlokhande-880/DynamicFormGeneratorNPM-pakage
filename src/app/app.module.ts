@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DynamicFormGeneratorModule } from 'projects/dynamic-form-generator/src/public-api';
+import { DynamicFormsGeneratorModule } from 'dynamic-forms-generator';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { DynamicFormGeneratorModule } from 'projects/dynamic-form-generator/src/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DynamicFormGeneratorModule
+    DynamicFormsGeneratorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
