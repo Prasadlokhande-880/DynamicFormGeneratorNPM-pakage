@@ -7,7 +7,7 @@
     id="{{ control.name }}"
     [formControlName]="control.name"
     (blur)="form.get(control.name)?.markAsTouched()"
-    class="select-field"
+    class="select-input"
   >
     <option value="" disabled>Select {{ control.label }}</option>
     <option *ngFor="let option of control.options" [value]="option.value">

@@ -6,7 +6,7 @@
   <input
     id="{{ control.name }}"
     type="text"
-    class="form-control"
+    class="string-input"
     [formControlName]="control.name"
     placeholder="{{ control.placeholder || '' }}"
     (blur)="form.get(control.name)?.markAsTouched()"
