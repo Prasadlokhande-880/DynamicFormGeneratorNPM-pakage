@@ -297,7 +297,7 @@ With these steps, you'll be able to integrate and customize the **Dynamic Form G
 
 ### 4. Adding Custom CSS to the Form
 
-You can style your form elements by leveraging predefined class names associated with each component. These class names allow you to customize the appearance of headings, labels, and various input types.
+You can style your form elements and their validation messages by leveraging predefined class names. These class names allow you to customize the appearance of headings, labels, input types, and error messages.
 
 ---
 
@@ -399,3 +399,63 @@ Use the class name `checkbox-input` for checkboxes or toggle inputs.
 ```
 
 ---
+
+#### **4. Styling Validation Messages**
+
+To style error messages for validation, use the class name `validation-message`.
+
+```css
+.validation-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  display: block;
+}
+```
+
+---
+
+#### Example of Applying CSS Classes with Validation Messages
+
+Here’s how the form template might look with these classes applied:
+
+```html
+<div class="form-group">
+  <h2 class="form-label-heading">Web Application Configuration</h2>
+
+  <label class="label" for="serviceEndpoint">Service Endpoint URL</label>
+  <input
+    id="serviceEndpoint"
+    type="text"
+    class="string-input"
+    placeholder="Enter URL"
+  />
+  <span class="validation-message">Service Endpoint URL is required.</span>
+
+  <label class="label" for="logLevel">Log Level</label>
+  <select id="logLevel" class="select-input">
+    <option value="INFO">Info</option>
+    <option value="DEBUG">Debug</option>
+    <option value="ERROR">Error</option>
+  </select>
+  <span class="validation-message">Log Level is required.</span>
+
+  <label class="label" for="age">Age</label>
+  <input
+    id="age"
+    type="number"
+    class="number-input"
+    min="18"
+    max="65"
+    placeholder="Enter your age"
+  />
+  <span class="validation-message">Age must be between 18 and 65.</span>
+
+  <label class="label" for="activateService">Activate Service</label>
+  <input id="activateService" type="checkbox" class="checkbox-input" />
+</div>
+```
+
+---
+
+With these class names, you can ensure a consistent and visually appealing design while highlighting validation errors effectively.

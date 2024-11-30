@@ -297,7 +297,7 @@ With these steps, you'll be able to integrate and customize the **Dynamic Form G
 
 ### 4. Adding Custom CSS to the Form
 
-You can style your form elements by leveraging predefined class names associated with each component. These class names allow you to customize the appearance of headings, labels, and various input types.
+You can style your form elements and their validation messages by leveraging predefined class names. These class names allow you to customize the appearance of headings, labels, input types, and error messages.
 
 ---
 
@@ -399,3 +399,20 @@ Use the class name `checkbox-input` for checkboxes or toggle inputs.
 ```
 
 ---
+
+#### **4. Styling Validation Messages**
+
+To style error messages for validation, use the class name `validation-message`.
+
+```css
+.validation-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  display: block;
+}
+```
+
+---
+
+With these class names, you can ensure a consistent and visually appealing design while highlighting validation errors effectively.
