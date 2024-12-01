@@ -1,6 +1,7 @@
 <div
-  class="configuration"
+  class="flex flex-col items-center bg-white shadow-lg p-6 rounded-lg"
   [ngStyle]="{
+    'max-width': '90%',
     'min-width': minWidth,
     'min-height': minHeight,
     'border': border ? borderSize + ' solid ' + borderColor : 'none',
@@ -9,14 +10,24 @@
     'margin': margin
   }"
 >
-  <div class="form-lable-heading">
-    <h1>{{ formJson.label }}</h1>
+  <div class="text-center m-6">
+    <h1 class="text-2xl font-bold">{{ formJson.label }}</h1>
   </div>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="w-full space-y-4">
     <dynamic-ui [formControlsData]="formJson" [form]="userForm"></dynamic-ui>
-    <div class="form-buttons">
-      <button class="submitButton" type="submit">{{ submitButtonLabel }}</button>
-      <button class="cancelButton" type="button">{{ cancelButtonLabel }}</button>
+    <div class="flex justify-end space-x-4 m-1">
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        type="submit"
+      >
+        {{ submitButtonLabel }}
+      </button>
+      <button
+        class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+        type="button"
+      >
+        {{ cancelButtonLabel }}
+      </button>
     </div>
   </form>
 </div>

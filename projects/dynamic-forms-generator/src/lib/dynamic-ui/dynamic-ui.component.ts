@@ -11,7 +11,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 @Component({
   selector: "dynamic-ui",
   templateUrl: "./dynamic-ui.component.html",
-  styleUrls: ["./dynamic-ui.component.css"],
+  styleUrls: ["./dynamic-ui.component.css", "../../styles.css"],
   animations: [
     trigger("slideToggle", [
       state("expanded", style({ height: "*", opacity: 1 })),

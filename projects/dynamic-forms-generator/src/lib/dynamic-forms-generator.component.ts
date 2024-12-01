@@ -1,29 +1,33 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from "@angular/forms";
 
 @Component({
-  selector: 'dynamic-forms-generator',
-  templateUrl: './dynamic-forms-generator.component.html',
-  styles: []
+  selector: "dynamic-forms-generator",
+  templateUrl: "./dynamic-forms-generator.component.html",
+  styleUrls: ["../styles.css"],
 })
 export class DynamicFormsGeneratorComponent {
   @Input() formJson: any;
   @Input() submitFunction!: (formData: any) => void;
 
   // Style configuration inputs
-  @Input() minWidth: string = '300px';
-  @Input() minHeight: string = '200px';
+  @Input() minWidth: string = "300px";
+  @Input() minHeight: string = "200px";
   @Input() border: boolean = false;
-  @Input() borderRadius: string = '5px';
-  @Input() borderSize: string = '1px';
-  @Input() borderColor: string = '#ccc';
-  @Input() padding: string = '16px';
-  @Input() margin: string = '16px';
+  @Input() borderRadius: string = "5px";
+  @Input() borderSize: string = "1px";
+  @Input() borderColor: string = "#ccc";
+  @Input() padding: string = "16px";
+  @Input() margin: string = "auto";
 
   // New inputs for additional customization
-  @Input() submitButtonLabel: string = 'Save';
-  @Input() cancelButtonLabel: string = 'Cancel';
-  @Input() fieldVisibility: { [key: string]: boolean } = {}; // To control visibility of fields
+  @Input() submitButtonLabel: string = "Save";
+  @Input() cancelButtonLabel: string = "Cancel";
 
   userForm!: FormGroup;
 
@@ -46,10 +50,6 @@ export class DynamicFormsGeneratorComponent {
 
   buildForm(controls: any[], formGroup: FormGroup): void {
     controls.forEach((control) => {
-      if (this.fieldVisibility[control.name] === false) {
-        return; // Skip if the field is not visible
-      }
-
       const validators = [];
       if (control.required) {
         validators.push(Validators.required);
@@ -64,11 +64,11 @@ export class DynamicFormsGeneratorComponent {
         validators.push(Validators.pattern(control.pattern));
       }
 
-      if (control.type === 'group') {
+      if (control.type === "group") {
         const subgroup = this.fb.group({});
         this.buildForm(control.controls, subgroup);
         formGroup.addControl(control.name, subgroup);
-      } else if (control.type === 'list') {
+      } else if (control.type === "list") {
         const formArray = this.fb.array([]);
         formGroup.addControl(control.name, formArray);
       } else {

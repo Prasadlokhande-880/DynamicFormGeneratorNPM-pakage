@@ -1,13 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from "@angular/core";
+import { FormGroup, ValidatorFn, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'input-boolen',
-  templateUrl: './input-boolen.component.html',
-  styleUrls: ['./input-boolen.component.css']
+  selector: "input-boolen",
+  templateUrl: "./input-boolen.component.html",
+  styleUrls: ["./input-boolen.component.css", "../../../styles.css"],
 })
 export class InputBoolenComponent implements OnInit {
-  @Input() control!: { name: string; label: string; placeholder?: string; validators?: any };
+  @Input() control!: {
+    name: string;
+    label: string;
+    placeholder?: string;
+    validators?: any;
+  };
   @Input() form!: FormGroup;
 
   ngOnInit() {
@@ -26,10 +31,10 @@ export class InputBoolenComponent implements OnInit {
 
     for (const validator of controlValidators) {
       switch (validator.validation) {
-        case 'required':
+        case "required":
           validatorsArray.push(Validators.requiredTrue); // Specific to boolean inputs like checkboxes
           break;
-        case 'custom':
+        case "custom":
           if (validator.customValidator) {
             validatorsArray.push(validator.customValidator);
           }
@@ -43,12 +48,20 @@ export class InputBoolenComponent implements OnInit {
 
   getErrorMessage() {
     const formControl = this.form.get(this.control.name);
-    if (formControl?.hasError('required')) {
-      return this.control.validators?.find((v: { validation: string; }) => v.validation === 'required')?.message || `${this.control.label} is required.`;
+    if (formControl?.hasError("required")) {
+      return (
+        this.control.validators?.find(
+          (v: { validation: string }) => v.validation === "required"
+        )?.message || `${this.control.label} is required.`
+      );
     }
-    if (formControl?.hasError('custom')) {
-      return this.control.validators?.find((v: { validation: string; }) => v.validation === 'custom')?.message || `${this.control.label} is invalid.`;
+    if (formControl?.hasError("custom")) {
+      return (
+        this.control.validators?.find(
+          (v: { validation: string }) => v.validation === "custom"
+        )?.message || `${this.control.label} is invalid.`
+      );
     }
-    return '';
+    return "";
   }
 }

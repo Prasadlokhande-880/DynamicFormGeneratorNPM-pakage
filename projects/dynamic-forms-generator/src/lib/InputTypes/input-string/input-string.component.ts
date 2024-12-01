@@ -4,7 +4,7 @@ import { AbstractControl, FormGroup, Validators } from "@angular/forms";
 @Component({
   selector: "input-string",
   templateUrl: "./input-string.component.html",
-  styleUrls: ["./input-string.component.css"],
+  styleUrls: ["./input-string.component.css", "../../../styles.css"],
 })
 export class InputStringComponent implements OnInit {
   @Input() control!: {
@@ -30,7 +30,6 @@ export class InputStringComponent implements OnInit {
     const controlValidators = this.control.validators || [];
 
     for (const validator of controlValidators) {
-
       switch (validator.validation) {
         case "required":
           validatorsArray.push(Validators.required);

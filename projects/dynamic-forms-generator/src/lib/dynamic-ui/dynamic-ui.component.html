@@ -1,42 +1,37 @@
-<div [formGroup]="form" class="dynamic-form">
+<div [formGroup]="form" class="space-y-6">
   <div *ngIf="formControlsData.controls.length > 0">
     <ng-container *ngFor="let control of formControlsData.controls">
-      <div [ngSwitch]="control.type" class="form-control">
+      <div [ngSwitch]="control.type" class="space-y-4">
         <!-- String Input Field -->
-        <div *ngSwitchCase="'String'" class="string-input">
+        <div *ngSwitchCase="'String'">
           <input-string [control]="control" [form]="form"></input-string>
         </div>
 
         <!-- Boolean Checkbox Field -->
-        <div *ngSwitchCase="'Boolean'" class="boolean-checkbox">
-          <input
-            id="{{ control.name }}"
-            type="checkbox"
-            [formControlName]="control.name"
-          />
-          <label for="{{ control.name }}">
-            {{ control.label }}
-          </label>
+        <div *ngSwitchCase="'Boolean'" class="flex items-center space-x-2">
+          <input-boolen [control]="control" [form]="form"></input-boolen>
         </div>
 
         <!-- Number Counter Field -->
-        <div *ngSwitchCase="'Counter'" class="number-counter">
+        <div *ngSwitchCase="'Counter'">
           <input-number [control]="control" [form]="form"></input-number>
         </div>
 
         <!-- Select Dropdown Field -->
-        <div *ngSwitchCase="'select'" class="select-dropdown">
+        <div *ngSwitchCase="'select'">
           <input-select [control]="control" [form]="form"></input-select>
         </div>
 
         <!-- List Field -->
-        <div *ngSwitchCase="'list'" class="list-field">
-          <h3>{{ control.label }}</h3>
+        <div *ngSwitchCase="'list'">
+          <h3 class="text-xl font-semibold text-gray-800 m-2 p-2">
+            {{ control.label }}
+          </h3>
           <div [@slideToggle]="isContentVisible ? 'collapsed' : 'expanded'">
-            <div [formArrayName]="control.name" class="form-array">
+            <div [formArrayName]="control.name" class="space-y-4">
               <div
                 *ngFor="let item of getFormArray(form, control.name).controls; let i = index"
-                class="form-array-item"
+                class="space-y-2 p-4 rounded-lg shadow-md"
               >
                 <div [formGroupName]="i">
                   <dynamic-ui
@@ -46,6 +41,7 @@
                   <button
                     type="button"
                     (click)="removeGroup(i, form, control.name)"
+                    class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
                   >
                     Remove
                   </button>
@@ -55,17 +51,20 @@
             <button
               type="button"
               (click)="addList(control.controls, control.name, form)"
+              class="mt-4 px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
             >
               Add List Item
             </button>
           </div>
-          <hr />
+          <hr class="my-4" />
         </div>
 
         <!-- Group Field -->
-        <div *ngSwitchCase="'group'" class="group-field">
+        <div *ngSwitchCase="'group'">
           <div [formGroupName]="control.name">
-            <h3>{{ control.label }}</h3>
+            <h3 class="text-xl font-semibold text-gray-800 m-2 p-2">
+              {{ control.label }}
+            </h3>
             <dynamic-ui
               [form]="getFormGroup(form, control.name)"
               [formControlsData]="control"

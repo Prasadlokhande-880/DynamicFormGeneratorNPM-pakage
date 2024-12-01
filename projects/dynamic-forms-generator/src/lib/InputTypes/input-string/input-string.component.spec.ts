@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { InputStringComponent } from './input-string.component';
+import { InputStringComponent } from "./input-string.component";
 
-describe('InputStringComponent', () => {
+describe("InputStringComponent", () => {
   let component: InputStringComponent;
   let fixture: ComponentFixture<InputStringComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InputStringComponent]
+      declarations: [InputStringComponent],
     });
     fixture = TestBed.createComponent(InputStringComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

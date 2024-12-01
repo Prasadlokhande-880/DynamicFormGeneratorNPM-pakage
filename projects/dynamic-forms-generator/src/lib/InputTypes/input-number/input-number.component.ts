@@ -1,13 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from "@angular/core";
+import { FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'input-number',
-  templateUrl: './input-number.component.html',
-  styleUrls: ['./input-number.component.css']
+  selector: "input-number",
+  templateUrl: "./input-number.component.html",
+  styleUrls: ["./input-number.component.css", "../../../styles.css"],
 })
 export class InputNumberComponent implements OnInit {
-  @Input() control!: { name: string; label: string; placeholder?: string; min?: number; max?: number; validators?: any };
+  @Input() control!: {
+    name: string;
+    label: string;
+    placeholder?: string;
+    min?: number;
+    max?: number;
+    validators?: any;
+  };
   @Input() form!: FormGroup;
 
   ngOnInit() {
@@ -33,7 +40,7 @@ export class InputNumberComponent implements OnInit {
 
     for (const validator of controlValidators) {
       switch (validator.validation) {
-        case 'custom':
+        case "custom":
           if (validator.customValidator) {
             validatorsArray.push(validator.customValidator);
           }
@@ -47,18 +54,22 @@ export class InputNumberComponent implements OnInit {
 
   getErrorMessage() {
     const formControl = this.form.get(this.control.name);
-    if (formControl?.hasError('required')) {
+    if (formControl?.hasError("required")) {
       return `${this.control.label} is required.`;
     }
-    if (formControl?.hasError('min')) {
+    if (formControl?.hasError("min")) {
       return `${this.control.label} must be at least ${this.control.min}.`;
     }
-    if (formControl?.hasError('max')) {
+    if (formControl?.hasError("max")) {
       return `${this.control.label} cannot be more than ${this.control.max}.`;
     }
-    if (formControl?.hasError('custom')) {
-      return this.control.validators?.find((v: { validation: string; }) => v.validation === 'custom')?.message || `${this.control.label} is invalid.`;
+    if (formControl?.hasError("custom")) {
+      return (
+        this.control.validators?.find(
+          (v: { validation: string }) => v.validation === "custom"
+        )?.message || `${this.control.label} is invalid.`
+      );
     }
-    return '';
+    return "";
   }
 }

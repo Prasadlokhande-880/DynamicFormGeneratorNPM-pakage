@@ -4,7 +4,7 @@ import { FormGroup, Validators } from "@angular/forms";
 @Component({
   selector: "input-select",
   templateUrl: "./input-select.component.html",
-  styleUrls: ["./input-select.component.css"],
+  styleUrls: ["./input-select.component.css", "../../../styles.css"],
 })
 export class InputSelectComponent implements OnInit {
   @Input() control!: {
