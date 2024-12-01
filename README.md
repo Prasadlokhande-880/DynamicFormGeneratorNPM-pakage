@@ -1,3 +1,7 @@
+Here is the updated README file without the custom CSS part and with instructions to set up Tailwind CSS for the Dynamic Form Generator:
+
+---
+
 # Dynamic Form Generator
 
 The **Dynamic Form Generator** is a versatile tool for creating dynamic, customizable forms in Angular. It leverages a JSON configuration to define form fields, validations, and messages, enabling seamless integration and flexibility in form design without hardcoding.
@@ -12,8 +16,57 @@ npm install dynamic-forms-generator
 
 ---
 
-### 2. Import the Module
+### 2. Set Up Tailwind CSS
+
+To use this package with **Tailwind CSS**, you'll need to set up Tailwind in your Angular project. Follow these steps to get started:
+
+#### 1. Install Tailwind CSS
+Run the following commands to install Tailwind CSS and its dependencies:
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+#### 2. Configure Tailwind
+Open the `tailwind.config.js` file and add the following content to enable JIT mode and specify the paths to all your HTML and TS files:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+#### 3. Add Tailwind Directives
+In the `src/styles.css` (or `src/styles.scss`) file, add the Tailwind CSS directives:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+#### 4. Build the Project
+Now, build your Angular project using the following command:
+
+```bash
+ng serve
+```
+
+Tailwind CSS should now be properly integrated into your project.
+
+---
+
+### 3. Import the Module
 In your Angular application's module (e.g., `AppModule`), import the **DynamicFormsGeneratorModule** from the package:
+
 ```typescript
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,7 +89,7 @@ export class AppModule {}
 
 ---
 
-### 3. Create the `formJson` Configuration
+### 4. Create the `formJson` Configuration
 
 The `formJson` object defines the structure of the form, including the input types, their labels, default values, and validation rules. Below is a breakdown of how to define various input types and their properties.
 
@@ -286,132 +339,16 @@ Use the following parameters to customize the form:
 | `borderSize`          | Thickness of the form border.                                   | `'2px'`                   |
 | `borderColor`         | Color of the form border.                                       | `'#007BFF'`               |
 | `padding`             | Internal spacing within the form.                              | `'20px'`                  |
-| `margin`              | External spacing around the form.                              | `'10px'`                  |
-| `submitButtonLabel`   | Text for the submit button.                                      | `'Save Changes'`          |
-| `cancelButtonLabel`   | Text for the cancel button.                                      | `'Discard'`               |
+| `margin
+
+`              | External spacing around the form.                              | `'10px'`                  |
+| `backgroundColor`     | Background color of the form.                                  | `'#FFFFFF'`               |
+| `title`               | Title text of the form.                                         | `'Form Title'`            |
 
 ---
 
-With these steps, you'll be able to integrate and customize the **Dynamic Form Generator** in your Angular project effectively!
+This setup allows you to quickly integrate a fully customizable dynamic form into your Angular project with Tailwind CSS styling and modular functionality.
 
-### 4. Adding Custom CSS to the Form
+### After doing this all you form will look like this
 
-You can style your form elements and their validation messages by leveraging predefined class names. These class names allow you to customize the appearance of headings, labels, input types, and error messages.
-
----
-
-#### **1. Styling Headings**
-To style form headings, use the class name `form-label-heading`.
-
-```css
-.form-label-heading {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #007BFF;
-  margin-bottom: 10px;
-}
-```
-
----
-
-#### **2. Styling Labels**
-To style labels for form inputs, use the class name `label`.
-
-```css
-.label {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 5px;
-  display: block;
-}
-```
-
----
-
-#### **3. Styling Input Types**
-
-Each input type has its own class name for targeted styling.
-
-##### **a) String Input**
-Use the class name `string-input` to style text inputs.
-
-```css
-.string-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
-  font-size: 1rem;
-}
-.string-input:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-```
-
-##### **b) Select Input**
-Use the class name `select-input` for dropdowns.
-
-```css
-.select-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  width: 100%;
-  font-size: 1rem;
-  background-color: #fff;
-}
-.select-input:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-```
-
-##### **c) Number Input**
-Use the class name `number-input` for counter or numeric inputs.
-
-```css
-.number-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  width: 100%;
-  font-size: 1rem;
-}
-.number-input:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-```
-
-##### **d) Checkbox Input**
-Use the class name `checkbox-input` for checkboxes or toggle inputs.
-
-```css
-.checkbox-input {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  accent-color: #007BFF;
-}
-```
-
----
-
-#### **4. Styling Validation Messages**
-
-To style error messages for validation, use the class name `validation-message`.
-
-```css
-.validation-message {
-  color: red;
-  font-size: 0.875rem;
-  margin-top: 5px;
-  display: block;
-}
-```
-
----
-
-With these class names, you can ensure a consistent and visually appealing design while highlighting validation errors effectively.
+![Form Preview](./images/Screenshot%202024-12-02%20at%2000.19.27.png)
