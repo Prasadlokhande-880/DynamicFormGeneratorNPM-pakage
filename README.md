@@ -1,4 +1,3 @@
-Here is the updated README file without the custom CSS part and with instructions to set up Tailwind CSS for the Dynamic Form Generator:
 
 ---
 
