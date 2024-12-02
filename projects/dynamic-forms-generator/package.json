@@ -1,7 +1,31 @@
 {
   "name": "dynamic-forms-generator",
-  "version": "0.0.1",
+  "version": "0.0.10",
+  "description": "A lightweight library for dynamically generating Angular forms with built-in validation and configuration support.",
   "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Prasadlokhande-880/DynamicFormGeneratorNPM-pakage"
+  },
+  "author": {
+    "name": "Prasad Lokhande",
+    "email": "prasadlokhande880@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "forms",
+    "dynamic-forms",
+    "validation",
+    "angular-library",
+    "tailwindcss",
+    "dynamic",
+    "Form",
+    "NPM"
+  ],
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"
@@ -9,10 +33,32 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false,
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15"
-  }
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.1.0",
+    "@angular/cli": "^16.2.0",
+    "@angular/compiler": "^16.2.0",
+    "@angular/compiler-cli": "^16.2.0"
+  },
+  "scripts": {
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "npm run build",
+    "start": "ng serve"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "contributors": [
+    {
+      "name": "Prasad Lokhande",
+      "email": "prasadlokhande880@gmail.com",
+      "url": "https://github.com/Prasadlokhande-880"
+    }
+  ]
 }
